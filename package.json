@@ -21,5 +21,8 @@
   "homepage": "https://github.com/pedrom40/building_blocks#readme",
   "dependencies": {
     "express": "^4.13.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
   }
 }
