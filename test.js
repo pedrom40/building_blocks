@@ -28,7 +28,7 @@ describe('Listing cities on /cities', function(){
     request(app)
       .get('/cities')
       .expect(200, done);
-  })
+  });
 });
 
 it('Returns JSON format', function(done){
@@ -41,4 +41,20 @@ it('Returns initial cities', function(done){
   request(app)
     .get('/cities')
     .expect(JSON.stringify(['Lotopia', 'Caspiana', 'Indigo']), done);
+});
+
+describe('Creating new cities', function(){
+  it('Returns a 201 status code', function(done){
+    request(app)
+      .post('/cities')
+      .send('name=Springfield&description=Where+the+Simpsons+live')
+      .expect(201, done);
+  });
+
+  it('Returns the city name', function(done){
+    request(app)
+      .post('/cities')
+      .send('name=Springfield&description=Where+the+Simpsons+live')
+      .expect(/springfield/i, done);
+  });
 });
