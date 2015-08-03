@@ -13,9 +13,7 @@ $(function(){
     $.ajax({
       type: 'POST', url: '/cities', data: cityData
     })
-    .error(function(xhr, status, error) {
-      alert(status);
-      alert(xhr.responseText);
+    .error(function() {
       $('.alert').show();
     })
     .success(function(cityName){
