@@ -23,7 +23,7 @@ else {
 app.get('/cities', function(request, response){
   client.hkeys('cities', function(error, names){
     if(error) throw error;
-    response.json(Object.keys(names));
+    response.json(names);
   });
 });
 
